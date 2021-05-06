@@ -2,6 +2,10 @@
 
 
 {% block content %}
+<a href="{% url 'dashboard_insert' %}" class="btn btn-outline-success">
+    <i class="fas fa-plus"></i> Add New
+</a>
+<hr/>
 <table class="table table-borderless">
     <thead class="border-bottom font-weight-bold">
         <tr>
@@ -15,7 +19,6 @@
             <td>min_score</td>
             <td>insert_date</td>
             <td>status</td>
-
         </tr>
     </thead>
     <tbody>
@@ -31,6 +34,17 @@
                 <td>{{dashboard.min_score}}</td>
                 <td>{{dashboard.insert_date}}</td>
                 <td>{{dashboard.status}}</td>
+                <td>
+                    <a href="{% url 'dashboard_update' dashboard.id %}" class="btn text-secondary px-0">
+                        <i class="far fa-edit fa-lg"></i>
+                    </a>
+                    <form action="{% url 'dashboard_delete' dashboard.id %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button type="submit" class="btn">
+                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                        </button>
+                    </form>
+                </td>
             </tr>
         {% endfor %}
     </tbody>

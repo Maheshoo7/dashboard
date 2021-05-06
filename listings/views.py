@@ -12,19 +12,21 @@ def dashboard_form(request, id=0):
         if id == 0:
             form = DashboardForm()
         else:
-            employee = Dashboard.objects.get(pk=id)
+            dashboard = Dashboard.objects.get(pk=id)
             form = DashboardForm(instance=dashboard)
         return render(request, "dashboard_form.html", {'form': form})
     else:
         if id == 0:
             form = DashboardForm(request.POST)
         else:
-            employee = Dashboard.objects.get(pk=id)
+            dashboard = Dashboard.objects.get(pk=id)
             form = DashboardForm(request.POST,instance= dashboard)
         if form.is_valid():
             form.save()
         return redirect('/dashboard/list')
 
 
-def dashboard_delete(request):
-    return
+def dashboard_delete(request,id):
+    dashboard = Dashboard.objects.get(pk=id)
+    dashboard.delete()
+    return redirect('/dashboard/list')

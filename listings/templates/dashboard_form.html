@@ -2,36 +2,47 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<form action="" method="post" autocomplete="off">
-    {% csrf_token %}
-    <div class="row">
-        <div class="col-md-6">
-            {{form.game_id|as_crispy_field}}
-            {{form.store_front_id|as_crispy_field}}
-            {{form.level_id|as_crispy_field}}
-            {{form.max_score|as_crispy_field}}
-            {{form.insert_date|as_crispy_field}}
-        </div>
-        <div class="col-md-6">
-            {{form.game_type|as_crispy_field}}
-            {{form.unit_id|as_crispy_field}}
-            {{form.merchant_id|as_crispy_field}}
-            {{form.min_score|as_crispy_field}}
-            {{form.status|as_crispy_field}}
+<div class="container">
+    <div class="col-md-8 offset-md-2 mt-5">
+        <div class="jumbotron">
+            <h1 class="display-4">Add Leaderboard</h1>
+            <hr class="my-4">
+
+            <form action="" method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-10">
+                        {{form.game_id|as_crispy_field}}
+                        {{form.store_front_id|as_crispy_field}}
+                        {{form.level_id|as_crispy_field}}
+                        {{form.max_score|as_crispy_field}}
+                        {{form.insert_date|as_crispy_field}}
+                        <!-- </div>
+        <div class="col-md-6"> -->
+                        {{form.game_type|as_crispy_field}}
+                        {{form.unit_id|as_crispy_field}}
+                        {{form.merchant_id|as_crispy_field}}
+                        {{form.min_score|as_crispy_field}}
+                        {{form.status|as_crispy_field}}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button type="submit" class="btn btn-success btn-block btn-lg">
+                            Submit</button>
+                    </div>
+
+                    <div class="col-md-4">
+                        <!-- <a href="{% url 'dashboard_list' %}" class="btn btn-secondary btn-block btn-lg">
+                 Reset
+            </a> -->
+                        <input class="btn btn-secondary btn-block btn-lg" type="reset" value="reset" />
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-8">
-            <button type="submit" class="btn btn-success btn-block btn-lg"><i class="fas fa-database"></i>
-                Submit</button>
-        </div>
+</div>
 
-        <div class="col-md-4">
-            <a href="{% url 'dashboard_list' %}" class="btn btn-secondary btn-block btn-lg">
-                <i class="fas fa-stream"></i> Back to list
-            </a>
-        </div>
-    </div>
-
-</form>
 {% endblock content %}

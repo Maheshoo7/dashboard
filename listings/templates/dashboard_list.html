@@ -15,21 +15,22 @@
             <table class="table table-borderless">
                 <thead class="border-bottom font-weight-bold">
                     <tr>
-                        <td>game_id</td>
-                        <td>game_type</td>
-                        <td>store_front_id</td>
-                        <td>unit_id</td>
-                        <td>level_id</td>
-                        <td>merchant_id</td>
-                        <td>max_score</td>
-                        <td>min_score</td>
-                        <td>insert_date</td>
-                        <td>status</td>
+                        <td>Game ID</td>
+                        <td>Game Type</td>
+                        <td>Store Front ID</td>
+                        <td>Unit ID</td>
+                        <td>Level ID</td>
+                        <td>Merchant ID</td>
+                        <td>Min Score</td>
+                        <td>Max Score</td>
+                        <td>Insert Date</td>
+                        <td>Status</td>
                     </tr>
                 </thead>
                 <tbody>
                     {% for dashboard in dashboard_list %}
                     <tr>
+                        <!-- <td>{{dashboard.id}}</td> -->
                         <td>{{dashboard.game_id}}</td>
                         <td>{{dashboard.game_type}}</td>
                         <td>{{dashboard.store_front_id}}</td>

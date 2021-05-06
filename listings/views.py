@@ -23,10 +23,10 @@ def dashboard_form(request, id=0):
             form = DashboardForm(request.POST,instance= dashboard)
         if form.is_valid():
             form.save()
-        return redirect('/dashboard/list')
+        return redirect('/dashboard/')
 
 
 def dashboard_delete(request,id):
     dashboard = Dashboard.objects.get(pk=id)
     dashboard.delete()
-    return redirect('/dashboard/list')
+    return redirect('/dashboard/')
